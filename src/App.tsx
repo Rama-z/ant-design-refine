@@ -56,7 +56,7 @@ const App: React.FC = () => {
                 </ThemedLayoutV2>
               }
             >
-              {/* <Route index element={<NavigateToResource resource="posts" />} /> */}
+              <Route index element={<NavigateToResource resource="posts" />} />
               <Route path="users" element={<AntdInferencer />} />
               <Route path="posts">
                 <Route index element={<AntdInferencer />} />
@@ -66,6 +66,7 @@ const App: React.FC = () => {
               </Route>
               <Route path="samples" element={<AntdInferencer />} />
               <Route path="*" element={<ErrorComponent />} />
+              // test autosave2
             </Route>
           </Routes>
           <UnsavedChangesNotifier />
