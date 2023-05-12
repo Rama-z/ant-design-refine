@@ -1,0 +1,19 @@
+.stories-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stories-container label {
+  font-weight: 700;
+  font-size: x-large;
+  padding: 10px 10px 10px 0px;
+}
+
+.stories-container input {
+  width: 50%;
+  color: gray;
+  outline: none;
+  border: 1px gray solid;
+  padding: 15px;
+  border-radius: 10px;
+}
