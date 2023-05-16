@@ -20,6 +20,10 @@ export const PostList: React.FC<IResourceComponentsProps> = () => {
     resource: "categories",
   });
 
+  const { selectProps: userSelectProps } = useSelect({
+    resource: "users",
+  });
+
   const { tableProps } = useTable({
     syncWithLocation: true,
   });
@@ -108,6 +112,16 @@ export const PostList: React.FC<IResourceComponentsProps> = () => {
               userData?.data?.find((item) => item.id === value)?.lastName
             )
           }
+          filterDropdown={(props) => (
+            <FilterDropdown {...props}>
+              <Select
+                style={{ minWidth: 200 }}
+                mode="multiple"
+                placeholder="Select category"
+                {...userSelectProps}
+              />
+            </FilterDropdown>
+          )}
         />
         <Table.Column sorter dataIndex="status" title="Status" />
         <Table.Column sorter dataIndex="status_color" title="Status Color" />

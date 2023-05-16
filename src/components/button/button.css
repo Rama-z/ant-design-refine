@@ -1,0 +1,26 @@
+.primary-button {
+  background-color: #1ea7fd;
+  color: white;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.secondary-button {
+  background-color: aliceblue;
+  color: black;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.disabled-button {
+  background-color: gray;
+  color: black;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: not-allowed;
+}

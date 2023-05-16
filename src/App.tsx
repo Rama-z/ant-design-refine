@@ -18,7 +18,19 @@ import { ConfigProvider } from "antd";
 import "@refinedev/antd/dist/reset.css";
 import { PostCreate, PostEdit, PostList, PostShow } from "./pages/posts/index";
 import authProvider, { axiosInstance } from "./authProvider";
-import { LoginPage, RegisterPage } from "./components/pages/auth/components";
+import {
+  ForgotPasswordPage,
+  LoginPage,
+  RegisterPage,
+  UpdatePasswordPage,
+} from "./pages/auth/components";
+import { UserCreate, UserEdit, UserList, UserShow } from "./pages/users";
+import {
+  SampleCreate,
+  SampleEdit,
+  SampleList,
+  SampleShow,
+} from "./pages/samples";
 
 const App: React.FC = () => {
   return (
@@ -37,20 +49,22 @@ const App: React.FC = () => {
               name: "users",
               list: "/users",
               create: "/users/create",
+              show: "/users/show/:id",
+              edit: "/users/edit/:id",
             },
             {
               name: "posts",
               list: "/posts",
-              show: "/posts/show/:id",
               create: "/posts/create",
+              show: "/posts/show/:id",
               edit: "/posts/edit/:id",
-              meta: {
-                canDelete: true,
-              },
             },
             {
               name: "samples",
               list: "/samples",
+              create: "/samples/create",
+              show: "/samples/show/:id",
+              edit: "/samples/edit/:id",
             },
           ]}
           options={{
@@ -61,6 +75,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
+            <Route path="forgotPassword" element={<ForgotPasswordPage />} />
+            <Route path="updatePassword" element={<UpdatePasswordPage />} />
             <Route
               // Sidebar
               element={
@@ -73,8 +89,10 @@ const App: React.FC = () => {
             >
               <Route index element={<NavigateToResource resource="posts" />} />
               <Route path="users">
-                <Route index element={<AntdInferencer />} />
-                <Route path="create" element={<AntdInferencer />} />
+                <Route index element={<UserList />} />
+                <Route path="create" element={<UserCreate />} />
+                <Route path="show/:id" element={<UserShow />} />
+                <Route path="edit/:id" element={<UserEdit />} />
               </Route>
               <Route path="posts">
                 <Route index element={<PostList />} />
@@ -83,8 +101,10 @@ const App: React.FC = () => {
                 <Route path="create" element={<PostCreate />} />
               </Route>
               <Route path="samples">
-                <Route index element={<AntdInferencer />} />
-                <Route path="create" element={<AntdInferencer />} />
+                <Route index element={<SampleList />} />
+                <Route path="create" element={<SampleCreate />} />
+                <Route path="show/:id" element={<SampleShow />} />
+                <Route path="edit/:id" element={<SampleEdit />} />
               </Route>
               <Route path="*" element={<ErrorComponent />} />
             </Route>
